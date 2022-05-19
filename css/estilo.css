@@ -1,0 +1,373 @@
+/* CSS Document*/
+/* #E5E0FA #8C78E8 #4424D6 #29157E #110934 */
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e5e0fa+0,8c78e8+25,4424d6+50,29157e+75,110934+100 */
+/* background: #e5e0fa; /* Old browsers */
+/* background: -moz-linear-gradient(left,  #e5e0fa 0%, #8c78e8 25%, #4424d6 50%, #29157e 75%, #110934 100%); /* FF3.6-15 */
+/* background: -webkit-linear-gradient(left,  #e5e0fa 0%,#8c78e8 25%,#4424d6 50%,#29157e 75%,#110934 100%); Chrome10-25,Safari5.1-6 */
+/* background: linear-gradient(to right,  #e5e0fa 0%,#8c78e8 25%,#4424d6 50%,#29157e 75%,#110934 100%); W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+/* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e0fa', endColorstr='#110934',GradientType=1 ); IE6-9 */
+
+@font-face {
+    font-family: "bigjohn";
+    src: url("../fontes/BIG\ JOHN.otf");
+}
+
+@font-face {
+    font-family: "roboto";
+    src: url("../fontes/roboto.ttf");
+}
+
+* {
+    /* box-sizing: border-box; */
+    margin: 0;
+    padding: 0;
+    /* border: solid 1px #000 */
+}
+
+body {
+    background-color: #110934;
+    background-image: url("../imagens/background.png");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-blend-mode: overlay;
+    font-family: 'roboto';
+}
+
+#container {
+    width: 80%;
+    min-width: 280px;
+    border-radius: 50px 50px 0 0;
+    margin: 0.5% auto;
+    /*border: grey 7px solid; */
+    /*border-bottom-color: grey;
+    border-bottom-width: 5px;
+    border-bottom-style: ridge ;*/
+    /*border-top:inset grey 6px;
+    border-bottom:inset grey 6px; */
+    /*border-radius: 9% 9% 9% 9%; */
+    /* ext-shadow: 5px 5px 10px dimgrey; */
+    /*box-shadow: 5px 5px 10px dimgrey; */
+    /*background-color: #0B67E3; */
+}
+
+hgroup {
+    background-color: rgba(229, 224, 250, 1);
+    box-shadow: 0px 0px 80px #29157E;
+    border-radius: 50px 50px 0 0;
+    font-family: 'bigjohn';
+    font-size: 60px;
+}
+
+hgroup a {
+    text-decoration: none;
+    color: #29157E;
+}
+
+header h1 {
+    margin: 1% 0 0% 1%;
+    padding: 1% 0 0 1.5%;
+    letter-spacing: 5px;
+    font-size: 90%;
+    transition: 1.5s;
+
+}
+
+header h2 {
+    margin: 0 0 0 1%;
+    padding: 0 0 1% 1.5%;
+    font-size: 25%;
+    transition: 1.5s;
+}
+
+nav ul {
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin: 1% 0;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 0.5% 2%;
+    margin: 0 2%;
+    border-radius: 15px;
+    transition: 1s;
+}
+
+nav ul li:hover {
+    background-color: #E5E0FA;
+}
+
+nav ul li a {
+    color: #E5E0FA;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #29157E;
+}
+
+#shadow {
+    box-shadow: 0px 0px 40px #29157E;
+    border-radius: 0 0 50px 50px;
+}
+
+#images {
+    text-align: center;
+    background-color: #E5E0FA;
+    margin: 1% 0 0 0;
+    padding: 1%;
+}
+
+#images img {
+    width: 25%;
+    height: auto;
+    margin: 0 2%;
+    border-radius: 50px;
+    opacity: 0.7;
+    transition: 1s;
+}
+
+#images img:hover {
+    opacity: 1;
+    box-shadow: 5px 5px 15px #29157E
+}
+
+#principal {
+    display: flex;
+    background-color: #E5E0FA;
+    border-radius: 0 0 50px 50px;
+    color: #110934;
+    width: 100%;
+}
+
+article {
+    width: 56%;
+    margin: 2% 2.5% 2% 5%;
+    padding: 0 1%;
+    text-align: left;
+    line-height: 25px;
+}
+
+article h2 {
+    text-align: center;
+    padding: 0 0 1% 0;
+}
+
+#destaque img {
+    width: 70%;
+    height: auto;
+    margin: 1% 15%;
+    border-radius: 50px;
+    opacity: 0.7;
+    transition: 1s;
+}
+
+#destaque img:hover {
+    opacity: 1;
+    box-shadow: 5px 5px 15px #29157E;
+}
+
+aside {
+    width: 31%;
+    text-align: center;
+    line-height: 25px;
+    margin: 2% 5% 2% 2.5%;
+    padding: 0 1% 0 1%;
+}
+
+aside div {
+    padding: 3% 0;
+}
+
+aside li {
+    list-style: none;
+    width: 60%;
+    background-color: #110934;
+    margin: 1% auto;
+    border-radius: 15px;
+    transition: 1s;
+}
+
+aside li:hover {
+    background-color: #E5E0FA;
+    text-decoration: underline;
+    color: #29157E;
+}
+
+aside li a {
+    text-decoration: none;
+    color: #E5E0FA;
+}
+
+aside li a:hover {
+    text-decoration: underline;
+    color: #29157E;
+}
+
+#buscar img {
+    position: absolute;
+}
+
+#buscar input {
+    margin: 2% 1%;
+}
+
+footer {
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: #E5E0FA;
+    margin: 1% 0;
+    padding: 1% 0;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+#mídias_sociais {
+    padding: 1% 0;
+}
+
+#mídias_sociais img {
+    width: 2.4%;
+    height: auto;
+    margin: 0 1%;
+    transition: 1.5s;
+}
+
+#mídias_sociais img:hover {
+    transform: rotate3d(1, 1, 1, 360deg) scale(1.5);
+}
+
+@media only screen and (max-width: 800px) {
+    hgroup {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    header h1 {
+        letter-spacing: 2.5px;
+    }
+
+    #principal {
+        display: table;
+    }
+
+    article {
+        width: 90%;
+    }
+
+    aside {
+        width: 90%
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    hgroup {
+        font-size: 30px;
+    }
+
+    nav ul li {
+        display: block;
+        text-align: center;
+    }
+
+    #mídias_sociais img {
+        width: 8%;
+        height: auto;
+    }
+}
+
+/* Estilo da página sobre.html */
+
+#dois ul {
+    padding: 0 5%;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+}
+
+iframe {
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+}
+
+/* Estlo da página contato.html / contatos.html */
+
+#formulario {
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    margin: 2%;
+}
+
+h2 {
+    margin-top: 2%;
+}
+
+h3 {
+    margin: 3% 0;
+}
+
+input {
+    margin: 0 2% 2% 0;
+    background-color: #E5E0FA;
+    padding: 1%;
+    border-radius: 10px;
+    border: 1px solid #110934;
+}
+
+placeholder {
+    color: #110934;
+}
+
+label {
+    padding: 0 1% 1% 0;
+}
+
+select {
+    padding: 0 1% 1% 0;
+    background-color: #E5E0FA;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+textarea {
+    background-color: #E5E0FA;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+/* Estlo da página servicos.html */
+
+#principal_servicos {
+    background-color: #E5E0FA;
+    border-radius: 0 0 50px 50px;
+    color: #110934;
+}
+
+#principal_servicos h2 {
+    font-size: 300%;
+    padding: 10%;
+}
+
+#principal_servicos h3 {
+    font-size: 150%;
+    padding: 5% 10%;
+}

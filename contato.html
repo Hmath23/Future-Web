@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--Identifica a versão do html-->
+<html lang="pt-br">
+<!-- Idioma d página-->
+
+<head>
+    <!--Parte pensante "ligações"-->
+    <meta charset="UTF-8"> <!-- Garantia de acentuação da página-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Compatibilidade com o edge -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Altera a escala da página para outros dispositivos-->
+    <title>FutureWeb - Contato</title>
+    <!--Título do documento-->
+    <link rel="stylesheet" href="css/estilo.css" type="text/css" />
+    <!-- Link para o css -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap" rel="stylesheet">
+    Link para o google fonts -->
+</head>
+
+<body>
+    <!--Parte visual do site-->
+    <div id="container">
+        <header>
+            <hgroup><a href="index.html">
+                    <h1>FutureWeb</h1> <!-- Apenas um h1 é colocado em cada página-->
+                    <h2>Desenvolvimento Web - Novas Tecnologias</h2>
+                </a>
+            </hgroup>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="sobre.html">sobre nós</a></li>
+                <li><a href="servicos.html">serviços</a></li>
+                <li><a href="contato.html">contato</a></li>
+            </ul>
+        </nav>
+        <div id="shadow">
+            <figure id="images">
+                <img id="gerenciamento" src="imagens/gerenciamento.jpg"
+                    alt="Imagem de um notebook ao lado de um bloco de notas, com o texto &quot;Gerenciamento de Inovação&quot; escrito sobre a imagem"
+                    width="320" height="290" title="Gerenciamento de Inovação" />
+                <img id="projetos" src="imagens/projetos.jpg"
+                    alt="Imagem de um homem de camisa azul escrevendo com uma caneta, com o texto &quot;Desenvolvimento de Projetos&quot; escrito sobre a imagem"
+                    width="320" height="290" title="Desenvolvimento de Projetos" />
+                <img id="designer-grafico" src="imagens/designer-grafico.jpg"
+                    alt="Imagem de diversos marca-textos empilhados com o a escrita &quot;Desenvolvimento Gráfico&quot; ao centro"
+                    width="320" height="290" title="Desenvolvimento Gráfico" />
+            </figure>
+
+            <section id="principal">
+                <div id="formulario">
+                    <h2>Fale Conosco</h2>
+                    <form action="controllers/contatocontroller.php" method="POST" name="frmcontato"
+                        oninput="out_investimento.value=parseInt(rng_investimento.value)">
+                        <!-- métodos que necessitem maior segurança, utlilzar o post -->
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="txtNome" autofocus>
+                        <!-- tabindex="2" autofocus="autofocus"-->
+                        <br>
+                        <input type="radio" id="sexo_m" name="txtSexo" value="M">
+                        <label for="sexo_m">Masculino</label>
+                        <input type="radio" id="sexo_f" name="txtSexo" value="F">
+                        <label for="sexo_f">Feminino</label>
+                        <br>
+                        <label for="mes">Mês do Nascimento</label>
+                        <input type="month" id="mes" name="txtMes">
+                        <br>
+                        <label for="mail">E-mail *</label>
+                        <input type="email" id="mail" name="txtMail" maxlength="50"
+                            placeholder="Ex.: username@email.com" required>
+                        <!-- tabindex="1" required="required"-->
+                        <br>
+                        <label for="site">Site</label>
+                        <input type="url" id="site" name="txtSite" placeholder="Ex.: http://www.seusite.com.br">
+                        <br>
+                        <label for="paginas">Quantidade de Páginas</label>
+                        <input type="number" id="paginas" name="intPaginas" maxlength="3">
+                        <br>
+                        <label for="prazo">Prazo de entrega em meses</label>
+                        <input type="number" id="prazo" name="intPrazo" maxlength="2" max="24" min="2" step="2">
+                        <br>
+                        <label for="prazo_dias">Prazo de entrega em dias</label>
+                        <input type="range" id="prazo_dias" name="rng_investimento" step="6" value="0" maxlength="2">
+                        <output name="out_investimento" onforminput="value=rng_investimento.valueAsNumber"
+                            for="prazo_dias"></output>
+                        <br>
+                        <label for="data">Data do pedido</label>
+                        <input type="date" id="data" name="dtData">
+                        <br>
+                        <label for="hora">Hora do pedido</label>
+                        <input type="time" id="hora" name="txtHora">
+                        <br>
+                        <label for="cor">Cor do Site</label>
+                        <input type="color" id="cor" name="txtCor">
+                        <br>
+                        <label for="servico">Serviço Solicitado</label>
+                        <select id="servico" name="txtServicos">
+                            <option value="Web Hosting">Hospedagem Web</option>
+                            <option value="E-mail">E-mail</option>
+                            <option value="SEO">SEO</option>
+                        </select>
+                        <br>
+                        <h3>Categorias</h3>
+                        <input type="checkbox" id="arq" name="txtArq" value="Arquitetura">
+                        <label for="arq">Arquitetura</label>
+                        <input type="checkbox" id="edu" name="txtEdu" value="Educação">
+                        <label for="edu">Educação</label>
+                        <input type="checkbox" id="eng" name="txtEng" value="Engenharia">
+                        <label for="eng">Engenharia</label>
+                        <br>
+                        <label for="obs">Observações</label>
+                        <br>
+                        <textarea name="txtObs" id="obs" cols="30" rows="4"></textarea>
+                        <br>
+                        <input type="submit" id="enviar" name="btnEnviar" value="Enviar Formulário">
+                        <input type="reset" id="limpar" name="btnlimpar" value="Limpar Formulário">
+                    </form>
+                </div>
+            </section>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="sobre.html">sobre nós</a></li>
+                <li><a href="sevicos.html">serviços</a></li>
+                <li><a href="contato.html">contato</a></li>
+            </ul>
+        </nav>
+    </div>
+    <footer>
+        <figure id="mídias_sociais">
+            <a href="https://twitter.com" target="_blanket">
+                <img id="twitter" src="imagens/twitter.png" width="32" height="32"
+                    alt="Logo da mídia social twitter, formado por um quadrado azul claro com bordas arredondadas e uma letra  &quot;T&quot; no centro preenchido por um gradiente vertical de um azul escuro para azul claro"
+                    title="Logo do twitter" /></a>
+            <a href="https://facebook.com" target="_blanket">
+                <img id="Facebook" src="imagens/facebook.png" width="32" height="32"
+                    alt="Logo da mídia social Facebook, formado por um quadrado azul escuro com bordas arrendondadas com uma letra &quot;f&quot; no meio preenchida com a cor branca"
+                    title="Logo do Facebook" /></a>
+            <a href="https://blogger.com" target="_blanket">
+                <img id="blogger" src="imagens/blogger.png" width="32" height="32"
+                    alt="Logo da mídia social Blogger, formado por um quadrado com bordas arredondadas preenchidas com um gradiente diagonal de laranja com branco, com uma letra &quot;B&quot; desenhada de cor branca ao centro"
+                    title="Logo do Blogger" /></a>
+        </figure>
+        <p><a href="#">Política de Privacidade</a></p>
+    </footer>
+</body>
