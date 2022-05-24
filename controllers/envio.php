@@ -4,8 +4,6 @@ require_once("../functions/funcoes.php");
 
 if (isset($_POST["btnEnviar"])){
 
-    $valido=true;
-    $campos;
      //Declraração de variáveis
      $nome = $_POST['txtNome'];
      $email = $_POST['txtMail'];
