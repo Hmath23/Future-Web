@@ -37,8 +37,15 @@ if (isset($_POST["btnListar"])){
         // Verificar se o campo txtNome foi preenchido
         // Se sim, atribuir valores as variáveis
         // if(isset($_POST['txtNome'])) {
-           // $fone = $_POST['txtPhone'];
-           // $cep = $_POST['txtCEP'];  
+            // $nome = $_POST['txtNome'];
+            // $email = $_POST['txtMail'];
+            // $fone = $_POST['txtPhone'];
+            // $endereco =  $_POST['txtEndereco'];
+            // $cidade = $_POST['txtCidade'];
+            // $uf = $_POST['txtUF'];
+            // $cep = $_POST['txtCEP'];
+            // $bairro=$_POST['txtBairro'];
+        //}  
 
            // // apresentar o valor da variável
            // //echo "Telefone: ".$txtPhone."<br>"
