@@ -1,8 +1,13 @@
 <?php 
 //Não apresentar tela de erros
 //ini_set('display_errors','0');
-require_once("../databases/bdturma88Connect.php");
+
+use FTP\Connection;
+
+require_once("../databases/bdturmaConnect.php");
 require_once("../config/SimpleRest.php");
+
+$page_key="";
 
 //Classe que empresta as definições feitas no arquivo SimpleRest
 class ContatosRestHandler extends SimpleRest {
@@ -19,6 +24,8 @@ class ContatosRestHandler extends SimpleRest {
             $email=$_POST['txtMail'];
 
             //Defnir as instruções SQL
+            
+            $codigo=4;
             $query = "INSERT INTO tbContatos (codContato,
                                             nomedoContato,
                                             enderecoContato,
@@ -67,5 +74,22 @@ class ContatosRestHandler extends SimpleRest {
         $jsonResponse = json_encode($responseData);
         return $jsonResponse;
     }
+}
+
+if(isset($_GET["page_key"])){
+    $page_key = $_GET["page_key"];
+}
+
+else{
+    if(isset($_POST["page_key"])){
+        $page_key = $_POST["page_key"];
+    }
+}
+
+switch($page_key){
+    case "Incluir":
+        $contatos = new ContatosRestHandler();
+        $contatos-> ContatosIncluir();
+        break;
 }
 ?>
