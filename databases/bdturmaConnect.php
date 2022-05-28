@@ -66,5 +66,57 @@ class bdTurmaConnect {
             die(print_r($e->getMessage()));
         }
     }
+    // Método para buscar o último código
+    function executeBuscaCodigoQuery($query){
+        try{
+            //conecta no banco de dados
+            $conn = $this->connectDB();
+            //depois da conexão com o banco de dados ele prepara as instruções para executar uma função
+            $resultado = $this->conn->prepare($query);
+            //para validar se o resultado está correto ou não, aplicaremos um if/else, com as verificações de 0(não funcionou) e 1(funcionou)
+            if(!$resultado->execute()){
+                $resultado="Não foi possível excutar a instrução";
+            }
+            else{
+                $linha = $resultado->fetch();
+                if(!is_null($linha[0])){
+                    $resultado=$linha[0]+1;
+                }
+                else{
+                    $resultado = 1;
+                }   
+            }
+        }
+        catch(PDOException $e){
+            die(print_r($e->getMessage()));
+        }
+        //para retornar o resultado
+        return $resultado;
+    }
+    // Método para executar Procedure de adição de dados na tabela
+    function executeProcedureOut($query,$array,$final){
+        try{
+            //conecta no banco de dados
+            $conn = $this->connectDB();
+            //prepare para execução da stored procedure
+            $stmt = $this->conn->prepare($query);
+            //Passagem de parâmetros
+            foreach($array as $key => $value){
+                $stmt->bindValue($key,$value);
+            }
+            //executar a store procedure
+            $stmt->execute();
+            //Um while faz com que os registros sejam percorridos em looping
+            //Cada consulta de reslultdo é apresentado baseado nos dados associados
+            while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)){
+                //array_map transforma os dados para o sistema de acentuação utf8
+                $resultset[] = array_map('utf8 _encode',$linha);
+            }
+        }
+        catch(PDOException $e){
+            die(print_r($e->getMessage()));
+        }
+        return $resultset;
+    }
 }
 ?>

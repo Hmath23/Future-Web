@@ -22,10 +22,16 @@ class ContatosRestHandler extends SimpleRest {
             $uf=$_POST['txtUF'];
             $cep=$_POST['txtCEP'];
             $email=$_POST['txtMail'];
-
-            //Defnir as instruções SQL
             
-            $codigo=4;
+            //Declarar a variável código como o último dado inserido na coluna
+            $query="SELECT codContato from tbcontatos ORDER by codContato desc LIMIT 1";
+             //Instanciar a classe BdTurmaConnect
+             $dbcontroller = new bdTurmaConnect();
+             //Chamar o método para popular a variável código
+             $codigo = $dbcontroller->executeBuscaCodigoQuery($query);
+            
+            //Defnir as instruções SQL
+
             $query = "INSERT INTO tbContatos (codContato,
                                             nomedoContato,
                                             enderecoContato,
