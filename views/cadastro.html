@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Compatibilidade com o edge -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Altera a escala da página para outros dispositivos-->
-    <title>FutureWeb - Login</title>
+    <title>FutureWeb - Cadastro</title>
     <!--Título do documento-->
     <link rel="stylesheet" href="../css/estilo.css" type="text/css" />
     <!-- Link para o css -->
@@ -42,15 +42,18 @@
         <div id="shadow">
             <section id="principal">
                 <div id="formulario">
-                    <h2>Login</h2>
-                    <form action="../controllers/envio.php" method="POST" name="log" id="frmLogin">
-                        <label for="usuario">Usuário</label>
-                        <input type="text" id="usuario" name="txtNomeUsuario" placeholder="Digite seu usuário" autofocus>
+                    <h2>Cadastro de Usuários</h2>
+                    <form action="../controllers/envio.php" method="POST" name="log" id="frmCadast">
+                        <label for="nomeuser">Nome do Usuário</label>
+                        <input type="text" id="nomeuser" name="txtNomeUsuario" placeholder="Digite seu nome de usuário" autofocus>
                         <br>
-                        <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="txtSenhaUsuario" placeholder="Digite sua senha">
+                        <label for="mailuser">Email do Usuário</label>
+                        <input type="email" id="mailuser" name="txtEmailUsuario" placeholder="Digite seu email de usuário" autofocus>
+                        <br>
+                        <label for="senha">Senha do Usuário</label>
+                        <input type="password" id="senha" name="txtSenhaUsuario" placeholder="Digite sua senha de usuário">
                         <br>                       
-                        <input type="submit" id="login" name="btnlogin" value="Login">
+                        <input type="submit" id="cadast" name="btnCadast" value="Cadastrar">
                         <input type="reset" id="limpar" name="btnlimpar" value="Limpar">
                     </form>
                 </div>
