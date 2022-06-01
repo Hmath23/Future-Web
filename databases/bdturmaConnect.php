@@ -55,7 +55,7 @@ class bdTurmaConnect {
             //Cada consulta de reslultdo é apresentado baseado nos dados associados
             while ($linha = $resultado->fetch(PDO::FETCH_ASSOC)){
                 //array_map transforma os dados para o sistema de acentuação utf8
-                $resultset[] = array_map('utf8 _encode',$linha);
+                $resultset[] = array_map('utf8_encode',$linha);
             }
             //Se o resultset não estiver vazio apresentar o resultado
             if(!empty($resultset)){
@@ -93,24 +93,34 @@ class bdTurmaConnect {
         //para retornar o resultado
         return $resultado;
     }
-    // Método para executar Procedure de adição de dados na tabela
     function executeProcedureOut($query,$array,$final){
         try{
-            //conecta no banco de dados
             $conn = $this->connectDB();
-            //prepare para execução da stored procedure
             $stmt = $this->conn->prepare($query);
-            //Passagem de parâmetros
             foreach($array as $key => $value){
                 $stmt->bindValue($key,$value);
             }
-            //executar a store procedure
             $stmt->execute();
-            //Um while faz com que os registros sejam percorridos em looping
-            //Cada consulta de reslultdo é apresentado baseado nos dados associados
             while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)){
-                //array_map transforma os dados para o sistema de acentuação utf8
-                $resultset[] = array_map('utf8 _encode',$linha);
+                $resultset[] = array_map('utf8_encode',$linha);
+            }
+        }
+        catch(PDOException $e){
+            die(print_r($e->getMessage()));
+        }
+        return $resultset;
+    }
+    function executeProcedure($query,$array){
+        try{
+            $resultset = [];
+            $conn = $this->connectDB();
+            $stmt = $this->conn->prepare($query);
+            foreach($array as $key => $value){
+                $stmt->bindValue($key,$value);
+            }
+            $stmt->execute();
+            while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)){
+                $resultset[] = array_map('utf8_encode',$linha);
             }
         }
         catch(PDOException $e){
