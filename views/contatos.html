@@ -43,7 +43,7 @@
             <section id="principal">
                 <div id="formulario">
                     <h2>Fale Conosco</h2>
-                    <form action="../controllers/envio.php" method="POST" name="contatos" id="frmContatos"
+                    <form action="../controllers/ControleContatos.php" method="POST" name="contatos" id="frmContatos"
                         oninput="out_investimento.value=parseInt(rng_investimento.value)">
                         <!-- métodos que necessitem maior segurança, utlilzar o post -->
                         <label for="nome">Nome</label>
@@ -74,7 +74,7 @@
                         <label for="phone">Telefone</label>
                         <input type="tel" id="phone" name="txtPhone" maxlength="13" pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}" placeholder="xx-xxxx-xxxx">
                         <br>                       
-                        <input type="submit" id="enviar" name="btnEnviar" value="Salvar">
+                        <input type="submit" id="enviar" name="btnEnviar" value="Enviar">
                         <input type="submit" id="listar" name="btnListar" value="Listar">
                         <input type="reset" id="limpar" name="btnlimpar" value="Limpar Formulário">
                     </form>
