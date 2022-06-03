@@ -35,7 +35,6 @@
                 <li><a href="../servicos.html">serviços</a></li>
                 <li><a href="../contato.html">contato</a></li>
                 <li><a href="contatos.html">contatos</a></li>
-                <li><a href="cadastro.html">cadastro</a></li>
                 <li><a href="login.html">login</a></li>
             </ul>
         </nav>
@@ -43,16 +42,17 @@
             <section id="principal">
                 <div id="formulario">
                     <h2>Fale Conosco</h2>
-                    <form action="../controllers/ControleContatos.php" method="POST" name="contatos" id="frmContatos"
-                        oninput="out_investimento.value=parseInt(rng_investimento.value)">
+                    <form action="../controllers/ControleContatos.php" method="POST" name="contatos" id="frmContatos">
                         <!-- métodos que necessitem maior segurança, utlilzar o post -->
                         <label for="nome">Nome</label>
                         <input type="text" id="nome" name="txtNome" placeholder="Digite seu nome" autofocus>
-                        <label for="nascimento">Data de Nascimento</label>
-                        <input type="date" id="nascimento" name="dtNasc">
+                        <label for="mail">E-mail *</label>
+                        <input type="email" id="mail" name="txtMail" maxlength="50"
+                            placeholder="Ex.: username@email.com" required>
+                        <!-- tabindex="1" required="required"-->
                         <br>
-                        <label for="cpf">CPF</label>
-                        <input type="text" id="cpf" name="txtCPF" placeholder="xxx.xxx.xxx-xx" maxlength="14">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="txtPhone" maxlength="11" pattern="[0-9]{6}-[0-9]{4}" placeholder="xxxxxx-xxxx">
                         <label for="cep">CEP</label>
                         <input type="text" id="cep" name="txtCEP" maxlength="9" placeholder="xxxxx-xxx">
                         <input type="button" id="busc-cep" name="btnCep" value="Buscar CEP">
@@ -66,13 +66,6 @@
                         <input type="text" id="cidade" name="txtCidade" placeholder="Informe a cidade">
                         <label for="uf">UF</label>
                         <input type="text" id="uf" name="txtUF" maxlength="2" placeholder="UF">
-                        <br>
-                        <label for="mail">E-mail *</label>
-                        <input type="email" id="mail" name="txtMail" maxlength="50"
-                            placeholder="Ex.: username@email.com" required>
-                        <!-- tabindex="1" required="required"-->
-                        <label for="phone">Telefone</label>
-                        <input type="tel" id="phone" name="txtPhone" maxlength="13" pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}" placeholder="xx-xxxx-xxxx">
                         <br>                       
                         <input type="submit" id="enviar" name="btnEnviar" value="Enviar">
                         <input type="submit" id="listar" name="btnListar" value="Listar">
@@ -83,9 +76,11 @@
         </div>
         <nav>
             <ul>
-                <li><a href="sobre.html">sobre nós</a></li>
-                <li><a href="sevicos.html">serviços</a></li>
-                <li><a href="contato.html">contato</a></li>
+                <li><a href="../sobre.html">sobre nós</a></li>
+                <li><a href="../servicos.html">serviços</a></li>
+                <li><a href="../contato.html">contato</a></li>
+                <li><a href="contatos.html">contatos</a></li>
+                <li><a href="login.html">login</a></li>
             </ul>
         </nav>
     </div>

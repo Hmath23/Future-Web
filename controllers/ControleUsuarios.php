@@ -83,7 +83,7 @@ class UsuariosRestHandler extends SimpleRest {
     }
 
     public function encodeJson($responseData) {
-        $jsonResponse=json_encode($responseData);
+        $jsonResponse=json_encode($responseData,JSON_UNESCAPED_UNICODE);
         return $jsonResponse;
     }
 }
@@ -96,6 +96,11 @@ else {
     if(isset($_POST["page_key"])) {
         $page_key=$_POST["page_key"];
     }
+}
+
+if (isset($_POST['btnCadast'])){
+    $page_key = "Incluir";
+    $_POST['HTTP_ACCEPT'] = "application/json";
 }
 
 switch($page_key) {

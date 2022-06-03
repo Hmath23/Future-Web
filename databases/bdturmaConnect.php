@@ -55,7 +55,7 @@ class bdTurmaConnect {
             //Cada consulta de reslultdo é apresentado baseado nos dados associados
             while ($linha = $resultado->fetch(PDO::FETCH_ASSOC)){
                 //array_map transforma os dados para o sistema de acentuação utf8
-                $resultset[] = array_map('utf8_encode',$linha);
+                $resultset[] = $linha;
             }
             //Se o resultset não estiver vazio apresentar o resultado
             if(!empty($resultset)){
@@ -102,7 +102,7 @@ class bdTurmaConnect {
             }
             $stmt->execute();
             while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)){
-                $resultset[] = array_map('utf8_encode',$linha);
+                $resultset[] = $linha;
             }
         }
         catch(PDOException $e){
@@ -120,7 +120,7 @@ class bdTurmaConnect {
             }
             $stmt->execute();
             while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)){
-                $resultset[] = array_map('utf8_encode',$linha);
+                $resultset[] = $linha;
             }
         }
         catch(PDOException $e){

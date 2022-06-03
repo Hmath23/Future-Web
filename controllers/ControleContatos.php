@@ -104,14 +104,29 @@ class ContatosRestHandler extends SimpleRest {
                 //Verificar se o arquivo passado foi json
                 if(strpos($requestContentType,'application/json') !== false){
                     $response = $this->encodeJson(($result));
-                    echo $response;
+                    $this->mostrarContatos($response);
+                    // echo $response;
                 }
             }
     }
 
     public function encodeJson($responseData){
-        $jsonResponse = json_encode($responseData);
+        $jsonResponse = json_encode($responseData,JSON_UNESCAPED_UNICODE);
         return $jsonResponse;
+    }
+
+    public function mostrarContatos($jsonObj){
+        $strLista = "Nome ==================== Bairro"."<br>";
+        $strLista .= "====================" . "<br>";
+
+        //receber os dados em json
+        $dados = json_decode($jsonObj);
+
+        //Percorrer os dados, tendo como vase o RetornoDados
+        foreach($dados->RetornoDados as $lista){
+            $strLista .= $lista->nomedoContato . "-" . $lista->bairro . "<br>";
+        }
+        echo $strLista;
     }
 }
 
@@ -145,6 +160,5 @@ switch($page_key){
         $contatos-> ContatosIncluir();
         break;
 }
-
 
 ?>
