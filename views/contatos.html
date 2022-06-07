@@ -8,6 +8,15 @@
     <meta charset="UTF-8"> <!-- Garantia de acentuação da página-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Compatibilidade com o edge -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Link para as apis do AJAX -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/ui-lightness/jquery-ui.css" /> 
+	<script src="http://code.jquery.com/jquery-1.8.3.js"></script> 
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <!-- Link para os arquivos java -->
+    <script type="text/javascript" src="../js/ValidaForm.js"></script>
+    <!-- Link para o arquivo javascript -->
     <!-- Altera a escala da página para outros dispositivos-->
     <title>FutureWeb - Contato</title>
     <!--Título do documento-->
@@ -42,7 +51,7 @@
             <section id="principal">
                 <div id="formulario">
                     <h2>Fale Conosco</h2>
-                    <form action="../controllers/ControleContatos.php" method="POST" name="contatos" id="frmContatos">
+                    <form action="" method="" name="contatos" id="frmContatos">
                         <!-- métodos que necessitem maior segurança, utlilzar o post -->
                         <label for="nome">Nome</label>
                         <input type="text" id="nome" name="txtNome" placeholder="Digite seu nome" autofocus>
@@ -67,12 +76,17 @@
                         <label for="uf">UF</label>
                         <input type="text" id="uf" name="txtUF" maxlength="2" placeholder="UF">
                         <br>                       
-                        <input type="submit" id="enviar" name="btnEnviar" value="Enviar">
-                        <input type="submit" id="listar" name="btnListar" value="Listar">
-                        <input type="reset" id="limpar" name="btnlimpar" value="Limpar Formulário">
+                        <input type="button" id="btnEnviar" name="btnEnviar" value="Enviar">
+                        <input type="button" id="btnListar" name="btnListar" value="Listar">
+                        <input type="reset" id="btnLimpar" name="btnLimpar" value="Limpar Formulário">
                     </form>
+                    <span id="Resultado" class="pop"><span>
+
+                    <div id="dialog" title="Atenção">
+                        <p id="resultado"></p>
+                    </div>
                 </div>
-            </section>
+            </section>           
         </div>
         <nav>
             <ul>

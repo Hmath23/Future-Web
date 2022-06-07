@@ -108,6 +108,7 @@ class ContatosRestHandler extends SimpleRest {
                     // echo $response;
                 }
             }
+            
     }
 
     public function encodeJson($responseData){
@@ -115,18 +116,19 @@ class ContatosRestHandler extends SimpleRest {
         return $jsonResponse;
     }
 
-    public function mostrarContatos($jsonObj){
-        $strLista = "Nome ==================== Bairro"."<br>";
-        $strLista .= "====================" . "<br>";
-
-        //receber os dados em json
+    public function MostrarContatos($jsonObj){
+        // $strLista = "<table border=1><tbody>"."\n"."<tr><th>Nome</th><th>Bairro</th></tr>"."\n";
+        //Receber dados em JSON
         $dados = json_decode($jsonObj);
-
-        //Percorrer os dados, tendo como vase o RetornoDados
         foreach($dados->RetornoDados as $lista){
-            $strLista .= $lista->nomedoContato . "-" . $lista->bairro . "<br>";
+            $strLista = $lista;
         }
+        // $fp = fopen('result.json','w');
+        // fwrite($fp,json_encode($strLista));
+        // fclose($fp);
         echo $strLista;
+    //     $referer = $_SERVER['HTTP_REFERER'];
+    //     header("Location: $referer");
     }
 }
 
@@ -147,7 +149,7 @@ if (isset($_POST['btnEnviar'])){
 
 if (isset($_POST['btnListar'])){
     $page_key = "Consultar";
-    $_POST['HTTP_ACCEPT'] = "application/json"; 
+    $_POST['HTTP_ACCEPT'] = "application/json";
 }
 
 switch($page_key){
@@ -160,5 +162,4 @@ switch($page_key){
         $contatos-> ContatosIncluir();
         break;
 }
-
 ?>
