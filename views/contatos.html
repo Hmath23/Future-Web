@@ -8,7 +8,7 @@
     <meta charset="UTF-8"> <!-- Garantia de acentuação da página-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Compatibilidade com o edge -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Altera a escala da página para outros dispositivos-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Link para as apis do AJAX -->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/ui-lightness/jquery-ui.css" /> 
@@ -17,7 +17,7 @@
     <!-- Link para os arquivos java -->
     <script type="text/javascript" src="../js/ValidaForm.js"></script>
     <!-- Link para o arquivo javascript -->
-    <!-- Altera a escala da página para outros dispositivos-->
+    
     <title>FutureWeb - Contato</title>
     <!--Título do documento-->
     <link rel="stylesheet" href="../css/estilo.css" type="text/css" />
@@ -54,31 +54,31 @@
                     <form action="" method="" name="contatos" id="frmContatos">
                         <!-- métodos que necessitem maior segurança, utlilzar o post -->
                         <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="txtNome" placeholder="Digite seu nome" autofocus>
+                        <input type="text" id="txtNome" name="txtNome" placeholder="Digite seu nome" autofocus>
                         <label for="mail">E-mail *</label>
-                        <input type="email" id="mail" name="txtMail" maxlength="50"
+                        <input type="email" id="txtMail" name="txtMail" maxlength="50"
                             placeholder="Ex.: username@email.com" required>
                         <!-- tabindex="1" required="required"-->
                         <br>
                         <label for="phone">Telefone</label>
-                        <input type="tel" id="phone" name="txtPhone" maxlength="11" pattern="[0-9]{6}-[0-9]{4}" placeholder="xxxxxx-xxxx">
+                        <input type="tel" id="txtPhone" name="txtPhone" maxlength="11" pattern="[0-9]{6}-[0-9]{4}" placeholder="xxxxxx-xxxx">
                         <label for="cep">CEP</label>
-                        <input type="text" id="cep" name="txtCEP" maxlength="9" placeholder="xxxxx-xxx">
+                        <input type="text" id="txtCEP" name="txtCEP" maxlength="8" placeholder="xxxxxxxx">
                         <input type="button" id="busc-cep" name="btnCep" value="Buscar CEP">
                         <br>
                         <label for="endereco">Endereço</label>
-                        <input type="text" id="endereco" name="txtEndereco" placeholder="Informe seu endereço">
+                        <input type="text" id="txtEndereco" name="txtEndereco" placeholder="Informe seu endereço">
                         <label for="bairro">Bairro</label>
-                        <input type="text" id="bairro" name="txtBairro" placeholder="Informe o bairro">
+                        <input type="text" id="txtBairro" name="txtBairro" placeholder="Informe o bairro">
                         <br>
                         <label for="cidade">Cidade</label>
-                        <input type="text" id="cidade" name="txtCidade" placeholder="Informe a cidade">
+                        <input type="text" id="txtCidade" name="txtCidade" placeholder="Informe a cidade">
                         <label for="uf">UF</label>
-                        <input type="text" id="uf" name="txtUF" maxlength="2" placeholder="UF">
+                        <input type="text" id="txtUF" name="txtUF" maxlength="2" placeholder="UF">
                         <br>                       
                         <input type="button" id="btnEnviar" name="btnEnviar" value="Enviar">
                         <input type="button" id="btnListar" name="btnListar" value="Listar">
-                        <input type="reset" id="btnLimpar" name="btnLimpar" value="Limpar Formulário">
+                        <input type="reset" id="btnLimpar" name="btnLimpar" value="Limpar">
                     </form>
                     <span id="Resultado" class="pop"><span>
 

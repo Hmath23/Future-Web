@@ -65,7 +65,7 @@ class ContatosRestHandler extends SimpleRest {
                     $rawData = array('sucesso' => 1);  
                 }
                 //Verificar qual o tipo de cabeçalho web
-                $requestContentType = $_POST['HTTP_ACCEPT'];
+                $requestContentType = $_GET['HTTP_ACCEPT'];
                 $this->setHttpHeaders($requestContentType,$statusCode);
                 $result["RetornoDados"] = $rawData;
                 //Verificar se o arquivo passado foi json
@@ -77,9 +77,9 @@ class ContatosRestHandler extends SimpleRest {
     }
 
     public function ContatosConsultar() {
-            if(isset($_POST['txtNome'])) {
+            if(isset($_GET['txtNome'])) {
 
-                $nome = $_POST['txtNome'];
+                $nome = $_GET['txtNome'];
             
                 //Chamar o procedure de Conslta de contatos a partir da variável nome
                 $query = "CALL spConsultarContatos(:pnome)";
@@ -98,14 +98,14 @@ class ContatosRestHandler extends SimpleRest {
                     $statusCode = 200;
                 }
                 //Verificar qual o tipo de cabeçalho web
-                $requestContentType = $_POST['HTTP_ACCEPT'];
+                $requestContentType = $_GET['HTTP_ACCEPT'];
                 $this->setHttpHeaders($requestContentType,$statusCode);
                 $result["RetornoDados"] = $rawData;
                 //Verificar se o arquivo passado foi json
                 if(strpos($requestContentType,'application/json') !== false){
                     $response = $this->encodeJson(($result));
-                    $this->mostrarContatos($response);
-                    // echo $response;
+                    // $this->mostrarContatos($response);
+                     echo $response;
                 }
             }
             
@@ -116,20 +116,20 @@ class ContatosRestHandler extends SimpleRest {
         return $jsonResponse;
     }
 
-    public function MostrarContatos($jsonObj){
-        // $strLista = "<table border=1><tbody>"."\n"."<tr><th>Nome</th><th>Bairro</th></tr>"."\n";
-        //Receber dados em JSON
-        $dados = json_decode($jsonObj);
-        foreach($dados->RetornoDados as $lista){
-            $strLista = $lista;
-        }
-        // $fp = fopen('result.json','w');
-        // fwrite($fp,json_encode($strLista));
-        // fclose($fp);
-        echo $strLista;
-    //     $referer = $_SERVER['HTTP_REFERER'];
-    //     header("Location: $referer");
-    }
+    // public function MostrarContatos($jsonObj){
+    //     // $strLista = "<table border=1><tbody>"."\n"."<tr><th>Nome</th><th>Bairro</th></tr>"."\n";
+    //     //Receber dados em JSON
+    //     $dados = json_decode($jsonObj);
+    //     foreach($dados->RetornoDados as $lista){
+    //         // $strLista = "<tr>"."<td>".$lista->nomedoContato."</td>"."<td>".$lista->bairro."</td>"."<tr>";
+    //     }
+    //     // $fp = fopen('result.json','w');
+    //     // fwrite($fp,json_encode($strLista));
+    //     // fclose($fp);
+    //     //  echo $strLista;
+    // //     $referer = $_SERVER['HTTP_REFERER'];
+    // //     header("Location: $referer");
+    // }
 }
 
 if(isset($_GET["page_key"])){
