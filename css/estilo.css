@@ -247,46 +247,6 @@ footer a:hover {
     transform: rotate3d(1, 1, 1, 360deg) scale(1.5);
 }
 
-@media only screen and (max-width: 800px) {
-    hgroup {
-        font-size: 40px;
-        text-align: center;
-    }
-
-    header h1 {
-        letter-spacing: 2.5px;
-    }
-
-    #principal {
-        display: table;
-    }
-
-    article {
-        width: 90%;
-    }
-
-    aside {
-        width: 90%
-    }
-}
-
-@media only screen and (max-width: 400px) {
-
-    hgroup {
-        font-size: 30px;
-    }
-
-    nav ul li {
-        display: block;
-        text-align: center;
-    }
-
-    #mídias_sociais img {
-        width: 8%;
-        height: auto;
-    }
-}
-
 /* Estilo da página sobre.html */
 
 #dois ul {
@@ -325,12 +285,36 @@ h3 {
     margin: 3% 0;
 }
 
-input {
+.campo {
     margin: 0 2% 2% 0;
     background-color: #E5E0FA;
     padding: 1%;
     border-radius: 10px;
     border: 1px solid #110934;
+    width: 28%;
+}
+
+.link-btn {
+    background-color: #29157E;
+    padding: 1% 1% 1% 2%;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #29157E;
+    position: relative;
+    margin: 5px 0 0 5px;
+    border: 1px solid #29157E;
+}
+
+.link-btn span.ui-icon {
+    color: #E5E0FA;
+    position: absolute;
+    left: .2em;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.ui-icon-search{
+    color: #E5E0FA;
 }
 
 placeholder {
@@ -354,6 +338,54 @@ textarea {
     border-radius: 10px;
 }
 
+.botao{
+    background-color: #29157E;
+    color: #E5E0FA;
+    padding: 1%;
+    border-radius: 10px;
+    margin: 0 1%;
+    border: none;
+}
+.modal{
+    background-color: #11093480;
+    
+}
+.modal-header{
+    color: #29157E;
+    text-align: center;
+}
+
+.modal-body{
+    color: #110934;
+}
+
+.modal table{
+    margin: auto;
+    width: 80%;
+}
+
+.modal tr:hover{
+    background-color: #110934;
+    color: #E5E0FA;
+}
+
+.modal-content{
+    background-color: #E5E0FA;
+}
+
+.modal-body  th {
+    font-size: 125%;
+    text-align: center;
+}
+.modal-body  td {
+    font-size: 95%;
+    text-align: center;
+}
+
+/* .modal-footer{
+    background-color: #E5E0FA;
+} */
+
 /* Estlo da página servicos.html */
 
 #principal_servicos {
@@ -370,4 +402,44 @@ textarea {
 #principal_servicos h3 {
     font-size: 150%;
     padding: 5% 10%;
+}
+
+@media only screen and (max-width: 1024px) {
+    hgroup {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    header h1 {
+        letter-spacing: 2.5px;
+    }
+
+    #principal {
+        display: table;
+    }
+
+    article {
+        width: 90%;
+    }
+
+    aside {
+        width: 90%
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    hgroup {
+        font-size: 30px;
+    }
+
+    nav ul li {
+        display: block;
+        text-align: center;
+    }
+
+    #mídias_sociais img {
+        width: 8%;
+        height: auto;
+    }
 }

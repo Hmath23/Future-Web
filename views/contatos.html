@@ -17,7 +17,14 @@
     <!-- Link para os arquivos java -->
     <script type="text/javascript" src="../js/ValidaForm.js"></script>
     <!-- Link para o arquivo javascript -->
-    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <title>FutureWeb - Contato</title>
     <!--Título do documento-->
     <link rel="stylesheet" href="../css/estilo.css" type="text/css" />
@@ -32,7 +39,7 @@
     <!--Parte visual do site-->
     <div id="container">
         <header>
-            <hgroup><a href="../index.html">
+            <hgroup><a href="../index.html" style="text-decoration: none;color: #29157E;">
                     <h1>FutureWeb</h1> <!-- Apenas um h1 é colocado em cada página-->
                     <h2>Desenvolvimento Web - Novas Tecnologias</h2>
                 </a>
@@ -54,37 +61,36 @@
                     <form action="" method="" name="contatos" id="frmContatos">
                         <!-- métodos que necessitem maior segurança, utlilzar o post -->
                         <label for="nome">Nome</label>
-                        <input type="text" id="txtNome" name="txtNome" placeholder="Digite seu nome" autofocus>
+                        <input type="text" id="txtNome" name="txtNome" placeholder="Digite seu nome" autofocus class="campo">
                         <label for="mail">E-mail *</label>
                         <input type="email" id="txtMail" name="txtMail" maxlength="50"
-                            placeholder="Ex.: username@email.com" required>
+                            placeholder="Ex.: username@email.com" required class="campo">
                         <!-- tabindex="1" required="required"-->
                         <br>
                         <label for="phone">Telefone</label>
-                        <input type="tel" id="txtPhone" name="txtPhone" maxlength="11" pattern="[0-9]{6}-[0-9]{4}" placeholder="xxxxxx-xxxx">
+                        <input type="tel" id="txtPhone" name="txtPhone" maxlength="11" pattern="[0-9]{6}-[0-9]{4}" placeholder="xxxxxx-xxxx" class="campo">
                         <label for="cep">CEP</label>
-                        <input type="text" id="txtCEP" name="txtCEP" maxlength="8" placeholder="xxxxxxxx">
-                        <input type="button" id="busc-cep" name="btnCep" value="Buscar CEP">
+                        <input type="text" id="txtCEP" name="txtCEP" maxlength="8" placeholder="xxxxxxxx" class="campo">
+                        <a href="#" id="link_cep" class="link-btn ui-state-default ui-corner-all">
+                            <span class="ui-icon ui-icon-search"></span>Buscar CEP</a>
                         <br>
                         <label for="endereco">Endereço</label>
-                        <input type="text" id="txtEndereco" name="txtEndereco" placeholder="Informe seu endereço">
+                        <input type="text" id="txtEndereco" name="txtEndereco" placeholder="Informe seu endereço" class="campo">
                         <label for="bairro">Bairro</label>
-                        <input type="text" id="txtBairro" name="txtBairro" placeholder="Informe o bairro">
+                        <input type="text" id="txtBairro" name="txtBairro" placeholder="Informe o bairro" class="campo">
                         <br>
                         <label for="cidade">Cidade</label>
-                        <input type="text" id="txtCidade" name="txtCidade" placeholder="Informe a cidade">
+                        <input type="text" id="txtCidade" name="txtCidade" placeholder="Informe a cidade" class="campo">
                         <label for="uf">UF</label>
-                        <input type="text" id="txtUF" name="txtUF" maxlength="2" placeholder="UF">
+                        <input type="text" id="txtUF" name="txtUF" maxlength="2" placeholder="UF" class="campo">
                         <br>                       
-                        <input type="button" id="btnEnviar" name="btnEnviar" value="Enviar">
-                        <input type="button" id="btnListar" name="btnListar" value="Listar">
-                        <input type="reset" id="btnLimpar" name="btnLimpar" value="Limpar">
-                    </form>
-                    <span id="Resultado" class="pop"><span>
-
-                    <div id="dialog" title="Atenção">
-                        <p id="resultado"></p>
-                    </div>
+                        <input type="button" id="btnEnviar" name="btnEnviar" value="Enviar" class="botao">
+                        <input type="button" id="btnListar" name="btnListar" value="Listar" class="botao">
+                        <input type="reset" id="btnLimpar" name="btnLimpar" value="Limpar" class="botao">
+                    </form> 
+                </div>
+                <div id="dialog" title="Atenção">
+                    <p id="Mensagem"></p>
                 </div>
             </section>           
         </div>
@@ -98,4 +104,30 @@
             </ul>
         </nav>
     </div>
+
+<!-- The Modal -->
+<div class="modal" id="Listagem">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title m-auto">Consulta dos dados</h4>
+            </div>
+    
+            <!-- Modal body -->
+            <div class="modal-body">
+                <span id="Resultado" class="pop"><span>
+                    <div id="dialog" title="Atenção">
+                        <p id="Resultado"></p>
+            
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="botao m-auto" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+
+</html>
