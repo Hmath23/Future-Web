@@ -295,7 +295,6 @@ h3 {
 }
 
 .link-btn {
-    background-color: #29157E;
     padding: 1% 1% 1% 2%;
     text-decoration: none;
     border-radius: 10px;
@@ -305,12 +304,17 @@ h3 {
     border: 1px solid #29157E;
 }
 
+.link-btn:hover{
+    text-decoration: none;
+    color: #29157E;
+}
+
 .link-btn span.ui-icon {
     color: #E5E0FA;
     position: absolute;
     left: .2em;
-    top: 50%;
-    margin-top: -8px;
+    top: 30%;
+    color: #29157E;
 }
 
 .ui-icon-search{

@@ -1,5 +1,26 @@
 /** Função para criar um objeto XMLHTTPRequest
 */
+// function mcep(t, mask){
+//     var i = t.value.length;
+//     var saida = mask.substring(1,0);
+//     var texto = mask.substring(i)
+//     if (texto.substring(0,1) != saida){
+//     	t.value += texto.substring(0,1);
+//     }
+// }
+// function mtel(t, mask){
+//     var i = t.value.length;
+//     var saida = mask.substring(1,0);
+//     var texto = mask.substring(i)
+//     if (texto.substring(0,1) != saida){
+//     	t.value += texto.substring(0,1);
+//     }
+// }
+
+$(document).ready(function(){
+	$("#txtPhone").mask("(99)999-999");
+  });
+
 
 function CriaRequest() {
 	try{
@@ -41,7 +62,7 @@ $(document).ready(function(){
 
 $(function(){
 	//Dialog
-	$('#dialog').dialog({
+	$('#dialogo').dialog({
 		autoOpen: false,
 		width: 600,
 		buttons:{
@@ -109,7 +130,9 @@ function MostrarContatos(obj){
 		}
 		strTabela += "</tbody></table>";
 		result.innerHTML = strTabela;
-		$("#Listagem").modal();
+		document.getElementById('formulario').style.display = "none";
+		document.getElementById('Resultado').style.display = "block"; 
+		//$("#Listagem").modal();
 	}
 	else{
 		$('input[name=txtNome]').val(obj.RetornoDados[0].nomedoContato);
@@ -124,10 +147,10 @@ function MostrarContatos(obj){
 }
 
 function preencherCampos(obj){
-	
-	if(obj.erro == true){
-		$("#Dialog").dialog('open');
-		$("#Mensagem").html('Cep Inválido');
+	if(obj.erro == "true"){
+		$("#dialogo").dialog('open');
+		msgHtml = "Cep Inválido"
+		$("#mensagem").html(msgHtml);
 		$('input[id=txtCEP').val('');
 	}
 	else{
