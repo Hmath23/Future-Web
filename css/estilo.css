@@ -350,45 +350,12 @@ textarea {
     margin: 0 1%;
     border: none;
 }
-.modal{
-    background-color: #11093480;
-    
-}
-.modal-header{
-    color: #29157E;
-    text-align: center;
-}
 
-.modal-body{
-    color: #110934;
-}
 
-.modal table{
-    margin: auto;
-    width: 80%;
+table {
+    width: 100%;
+    margin: 0 auto;
 }
-
-.modal tr:hover{
-    background-color: #110934;
-    color: #E5E0FA;
-}
-
-.modal-content{
-    background-color: #E5E0FA;
-}
-
-.modal-body  th {
-    font-size: 125%;
-    text-align: center;
-}
-.modal-body  td {
-    font-size: 95%;
-    text-align: center;
-}
-
-/* .modal-footer{
-    background-color: #E5E0FA;
-} */
 
 /* Estlo da página servicos.html */
 

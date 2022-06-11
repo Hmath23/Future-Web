@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <!--Identifica a versão do html-->
 <html lang="pt-br">
 <!-- Idioma d página-->
@@ -28,10 +28,11 @@
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <!-- Link para os arquivos java -->
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <!-- Link para o plugin de máscara JQuery -->
 
     <script type="text/javascript" src="../js/ValidaForm.js"></script>
     <!-- Link para o arquivo javascript -->
-
 
     <title>FutureWeb - Contato</title>
     <!--Título do documento-->
@@ -76,9 +77,9 @@
                         <!-- tabindex="1" required="required"-->
                         <br>
                         <label for="phone">Telefone</label>
-                        <input type="text" id="txtPhone" name="txtPhone" maxlength="13" placeholder="xxxxxx-xxxx" class="campo" onkeypress="mtel(this,'##-#####-####')">
+                        <input type="text" id="txtPhone" name="txtPhone" maxlength="13" placeholder="xxxxxx-xxxx" class="campo">
                         <label for="cep">CEP</label>
-                        <input type="text" id="txtCEP" name="txtCEP" maxlength="9" placeholder="xxxxxxxx" class="campo" onkeypress="mcep(this,'#####-###')">
+                        <input type="text" id="txtCEP" name="txtCEP" maxlength="9" placeholder="xxxxxxxx" class="campo">
                         <a href="#" id="link_cep" class="link-btn ui-state-default ui-corner-all">
                             <span class="ui-icon ui-icon-search"></span>
                         Buscar CEP</a>

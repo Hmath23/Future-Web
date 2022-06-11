@@ -17,11 +17,6 @@
 //     }
 // }
 
-$(document).ready(function(){
-	$("#txtPhone").mask("(99)999-999");
-  });
-
-
 function CriaRequest() {
 	try{
 		request = new XMLHttpRequest();        
@@ -48,9 +43,11 @@ function CriaRequest() {
 }
 
 $(document).ready(function(){
+	$('#txtCEP').mask('00000-000');
+	$('#txtPhone').mask('(00)00000-0000');
     $('#btnListar').click(function(){
         // alert("Teste");
-    ContatosConsultar();
+    	ContatosConsultar();
     });
 	$('#btnEnviar').click(function(){
     	ContatosIncluir();
@@ -73,31 +70,6 @@ $(function(){
 	});
 });
 
-function ContatosConsultar(){
-    // alert("Teste Método");
-    var strnome = $('input[id=txtNome]').val();
-	//Definir a url
-    var url = "../controllers/ControleContatos.php?page_key=Consultar"+"&txtNome="+strnome+"&HTTP_ACCEPT=application/json";
-	//Instanciar o método
-	var xmlreq = CriaRequest();
-	//Iniciar uma requisição
-	xmlreq.open('GET',url,true);
-	//Verificar a situação da conexão com o servidor
-	xmlreq.onreadystatechange = function(){
-		//Verificar se foi concluído com sucesso e se a conexão não foi fechada (readyState=4)
-		if(xmlreq.readyState == 4){
-			//Verificar se o status da conexão é 200
-			if(xmlreq.status == 200){
-				// alert(xmlreq.responseText);
-				MostrarContatos(JSON.parse(xmlreq.responseText));
-			}
-		}
-	};
-	//Envio dos parâmetros
-	// xmlreq.send("page_key=Consultar"+"&txtNome="+strnome+"&HTTP_ACCEPT=application/json");
-	xmlreq.send(null);
-}
-
 function BuscaCep(){
     var strcep = $('input[id=txtCEP]').val();
     var url = "http://viacep.com.br/ws/"+strcep+"/json";
@@ -114,6 +86,22 @@ function BuscaCep(){
 		}
 	};
 	xmlreq.send(null);
+}
+
+function preencherCampos(obj){
+	if(obj.erro == "true"){
+		$("#dialogo").dialog('open');
+			msgHtml = "Cep Inválido"
+		$("#mensagem").html(msgHtml);
+		$('input[id=txtCEP').val('');
+	}
+	else{
+		$('input[name=txtCEP]').val(obj.cep);
+		$('input[name=txtEndereco]').val(obj.logradouro);
+		$('input[name=txtBairro]').val(obj.bairro);
+		$('input[name=txtCidade]').val(obj.localidade);
+		$('input[name=txtUF]').val(obj.uf);
+	}
 }
 
 function MostrarContatos(obj){
@@ -146,17 +134,59 @@ function MostrarContatos(obj){
 	}
 }
 
-function preencherCampos(obj){
-	if(obj.erro == "true"){
-		$("#dialogo").dialog('open');
-		msgHtml = "Cep Inválido"
-		$("#mensagem").html(msgHtml);
-		$('input[id=txtCEP').val('');
-	}
-	else{
-		$('input[name=txtEndereco]').val(obj.logradouro);
-		$('input[name=txtBairro]').val(obj.bairro);
-		$('input[name=txtCidade]').val(obj.localidade);
-		$('input[name=txtUF]').val(obj.uf);
-	}
+function ContatosConsultar(){
+    // alert("Teste Método");
+    var strnome = $('input[id=txtNome]').val();
+	//Definir a url
+	var url = "../controllers/ControleContatos.php";
+    // var url = "../controllers/ControleContatos.php?page_key=Consultar"+"&txtNome="+strnome+"&HTTP_ACCEPT=application/json";
+	//Instanciar o método
+	var xmlreq = CriaRequest();
+	//Iniciar uma requisição
+	xmlreq.open('POST',url,true);
+	//Cabeçalho de Envio
+	xmlreq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	//Verificar a situação da conexão com o servidor
+	xmlreq.onreadystatechange = function(){
+		//Verificar se foi concluído com sucesso e se a conexão não foi fechada (readyState=4)
+		if(xmlreq.readyState == 4){
+			//Verificar se o status da conexão é 200
+			if(xmlreq.status == 200){
+				// alert(xmlreq.responseText);
+				MostrarContatos(JSON.parse(xmlreq.responseText));
+			}
+		}
+	};
+	//Envio dos parâmetros
+	xmlreq.send("page_key=Consultar"+"&txtNome="+strnome+"&HTTP_ACCEPT=application/json");
+	// xmlreq.send(null);
+}
+
+function ContatosIncluir(){
+    var strnome = $('input[id=txtNome]').val();
+	var stremail = $('input[name=txtMail]').val();
+	var strfone = $('input[name=txtPhone]').val().replace(/[^\d]+/g,'');
+	var strcep = $('input[name=txtCEP]').val().replace(/[^\d]+/g,'');
+	var strendereco = $('input[id=txtEndereco]').val();
+	var strbairro =	$('input[name=txtBairro]').val();
+	var strcidade = $('input[name=txtCidade]').val();
+	var struf =	$('input[name=txtUF]').val();
+
+	var url = "../controllers/ControleContatos.php";
+
+	var xmlreq = CriaRequest();
+
+	xmlreq.open('POST',url,true);
+
+	xmlreq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+	xmlreq.onreadystatechange = function(){
+		if(xmlreq.readyState == 4){
+			if(xmlreq.status == 200){
+				alert(xmlreq.responseText);
+				// MostrarContatos(JSON.parse(xmlreq.responseText));
+			}
+		}
+	};
+	xmlreq.send("page_key=Incluir"+"&txtNome="+strnome+"&txtMail="+stremail+"&txtPhone="+strfone+"&txtCEP="+strcep+"&txtEndereco="+strendereco+"&txtBairro="+strbairro+"&txtCidade="+strcidade+"&txtUF="+struf+"&HTTP_ACCEPT=application/json");
 }

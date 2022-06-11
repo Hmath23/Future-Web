@@ -77,9 +77,9 @@ class ContatosRestHandler extends SimpleRest {
     }
 
     public function ContatosConsultar() {
-            if(isset($_GET['txtNome'])) {
+            if(isset($_POST['txtNome'])) {
 
-                $nome = $_GET['txtNome'];
+                $nome = $_POST['txtNome'];
             
                 //Chamar o procedure de Conslta de contatos a partir da variável nome
                 $query = "CALL spConsultarContatos(:pnome)";
@@ -98,7 +98,7 @@ class ContatosRestHandler extends SimpleRest {
                     $statusCode = 200;
                 }
                 //Verificar qual o tipo de cabeçalho web
-                $requestContentType = $_GET['HTTP_ACCEPT'];
+                $requestContentType = $_POST['HTTP_ACCEPT'];
                 $this->setHttpHeaders($requestContentType,$statusCode);
                 $result["RetornoDados"] = $rawData;
                 //Verificar se o arquivo passado foi json
