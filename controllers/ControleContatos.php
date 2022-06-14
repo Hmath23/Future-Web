@@ -65,7 +65,7 @@ class ContatosRestHandler extends SimpleRest {
                     $rawData = array('sucesso' => 1);  
                 }
                 //Verificar qual o tipo de cabeçalho web
-                $requestContentType = $_GET['HTTP_ACCEPT'];
+                $requestContentType = $_POST['HTTP_ACCEPT'];
                 $this->setHttpHeaders($requestContentType,$statusCode);
                 $result["RetornoDados"] = $rawData;
                 //Verificar se o arquivo passado foi json

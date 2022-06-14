@@ -104,6 +104,34 @@ function preencherCampos(obj){
 	}
 }
 
+function ContatosConsultar(){
+    // alert("Teste Método");
+    var strnome = $('input[id=txtNome]').val();
+	//Definir a url
+	var url = "../controllers/ControleContatos.php";
+    // var url = "../controllers/ControleContatos.php?page_key=Consultar"+"&txtNome="+strnome+"&HTTP_ACCEPT=application/json";
+	//Instanciar o método
+	var xmlreq = CriaRequest();
+	//Iniciar uma requisição
+	xmlreq.open('POST',url,true);
+	//Cabeçalho de Envio
+	xmlreq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	//Verificar a situação da conexão com o servidor
+	xmlreq.onreadystatechange = function(){
+		//Verificar se foi concluído com sucesso e se a conexão não foi fechada (readyState=4)
+		if(xmlreq.readyState == 4){
+			//Verificar se o status da conexão é 200
+			if(xmlreq.status == 200){
+				// alert(xmlreq.responseText);
+				MostrarContatos(JSON.parse(xmlreq.responseText));
+			}
+		}
+	};
+	//Envio dos parâmetros
+	xmlreq.send("page_key=Consultar"+"&txtNome="+strnome+"&HTTP_ACCEPT=application/json");
+	// xmlreq.send(null);
+}
+
 function MostrarContatos(obj){
 	var strTabela = "<table border=1><thead><th>Nome</th><th>Email</th><th>Telefone</th><th>CEP</th><th>UF</th></thead>";
 	result = document.getElementById('Resultado');
@@ -134,59 +162,78 @@ function MostrarContatos(obj){
 	}
 }
 
-function ContatosConsultar(){
-    // alert("Teste Método");
-    var strnome = $('input[id=txtNome]').val();
-	//Definir a url
-	var url = "../controllers/ControleContatos.php";
-    // var url = "../controllers/ControleContatos.php?page_key=Consultar"+"&txtNome="+strnome+"&HTTP_ACCEPT=application/json";
-	//Instanciar o método
-	var xmlreq = CriaRequest();
-	//Iniciar uma requisição
-	xmlreq.open('POST',url,true);
-	//Cabeçalho de Envio
-	xmlreq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	//Verificar a situação da conexão com o servidor
-	xmlreq.onreadystatechange = function(){
-		//Verificar se foi concluído com sucesso e se a conexão não foi fechada (readyState=4)
-		if(xmlreq.readyState == 4){
-			//Verificar se o status da conexão é 200
-			if(xmlreq.status == 200){
-				// alert(xmlreq.responseText);
-				MostrarContatos(JSON.parse(xmlreq.responseText));
-			}
+function ContatosIncluir(){
+	var controle = 0;
+	var controlebotao = 0;
+
+	var itensform = document.forms['frmContatos'];
+	var qtditens = itensform.elements.length;
+
+
+
+	for (var i = 0; i < qtditens; i++) {
+		if (itensform.elements[i].type == 'button' || itensform.elements[i].type == 'reset'){
+			controlebotao = 1;
 		}
-	};
-	//Envio dos parâmetros
-	xmlreq.send("page_key=Consultar"+"&txtNome="+strnome+"&HTTP_ACCEPT=application/json");
-	// xmlreq.send(null);
+			if(controlebotao == 0){
+				if ((itensform.elements[i].type == 'email' || itensform.elements[i].type == 'text') && itensform.elements[i].value == "") {
+					controle += 1;
+					itensform.elements[i].style.background = 'red';
+				}
+				else {
+					itensform.elements[i].style.background = 'white';
+				}
+			}
+		controlebotao = 0;
+	}
+
+	if (controle > 0) {
+		$('#dialogo').dialog('open');
+			msgHtml = "Favor preencher os campos em destaque";	
+		$('#mensagem').html(msgHtml);
+	}
+
+	else {
+		var strnome = $('input[id=txtNome]').val();
+		var stremail = $('input[name=txtMail]').val();
+		var strfone = $('input[name=txtPhone]').val().replace(/[^\d]+/g,'');
+		var strcep = $('input[name=txtCEP]').val().replace(/[^\d]+/g,'');
+		var strendereco = $('input[id=txtEndereco]').val();
+		var strbairro =	$('input[name=txtBairro]').val();
+		var strcidade = $('input[name=txtCidade]').val();
+		var struf =	$('input[name=txtUF]').val();
+
+		var url = "../controllers/ControleContatos.php";
+
+		var xmlreq = CriaRequest();
+
+		xmlreq.open('POST',url,true);
+
+		xmlreq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+		xmlreq.onreadystatechange = function(){
+			if(xmlreq.readyState == 4){
+				if(xmlreq.status == 200){
+					// alert(xmlreq.responseText);
+					confirmarCadastro(JSON.parse(xmlreq.responseText));
+				}
+			}
+		};
+		xmlreq.send("page_key=Incluir"+"&txtNome="+strnome+"&txtMail="+stremail+"&txtPhone="+strfone+"&txtCEP="+strcep+"&txtEndereco="+strendereco+"&txtBairro="+strbairro+"&txtCidade="+strcidade+"&txtUF="+struf+"&HTTP_ACCEPT=application/json");
+			
+		document.getElementById('frmContatos').reset();
+	}
 }
 
-function ContatosIncluir(){
-    var strnome = $('input[id=txtNome]').val();
-	var stremail = $('input[name=txtMail]').val();
-	var strfone = $('input[name=txtPhone]').val().replace(/[^\d]+/g,'');
-	var strcep = $('input[name=txtCEP]').val().replace(/[^\d]+/g,'');
-	var strendereco = $('input[id=txtEndereco]').val();
-	var strbairro =	$('input[name=txtBairro]').val();
-	var strcidade = $('input[name=txtCidade]').val();
-	var struf =	$('input[name=txtUF]').val();
-
-	var url = "../controllers/ControleContatos.php";
-
-	var xmlreq = CriaRequest();
-
-	xmlreq.open('POST',url,true);
-
-	xmlreq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-
-	xmlreq.onreadystatechange = function(){
-		if(xmlreq.readyState == 4){
-			if(xmlreq.status == 200){
-				alert(xmlreq.responseText);
-				// MostrarContatos(JSON.parse(xmlreq.responseText));
-			}
-		}
-	};
-	xmlreq.send("page_key=Incluir"+"&txtNome="+strnome+"&txtMail="+stremail+"&txtPhone="+strfone+"&txtCEP="+strcep+"&txtEndereco="+strendereco+"&txtBairro="+strbairro+"&txtCidade="+strcidade+"&txtUF="+struf+"&HTTP_ACCEPT=application/json");
+function confirmarCadastro(obj){
+	if(obj.RetornoDados.sucesso == '1'){
+		$("#dialogo").dialog('open');
+			msgHtml = "Seu cadastro foi realizado com sucesso!"
+		$("#mensagem").html(msgHtml);
+	}
+	else{
+		$("#dialogo").dialog('open');
+			msgHtml = "Houve um erro com seu cadastro por favor procure o suporte."
+		$("#mensagem").html(msgHtml);
+	}
 }
