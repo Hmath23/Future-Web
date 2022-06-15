@@ -954,7 +954,7 @@ body .ui-tooltip {
 }
 
 .ui-widget-content {
-    border: 1px solid #E5E0FA;
+    border: 1px solid #29157E;
     background:#E5E0FA;
     color: #333333;
 }
@@ -1056,6 +1056,7 @@ body .ui-tooltip {
      background: linear-gradient(to right,  #110934 0%,#29157E 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#110934', endColorstr='#29157e',GradientType=1 ); /* IE6-9 */
     color: #E5E0FA;
+    
 }
 
 .ui-state-highlight a,

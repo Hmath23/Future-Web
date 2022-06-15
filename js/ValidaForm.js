@@ -176,10 +176,10 @@ function ContatosIncluir(){
 			if(controlebotao == 0){
 				if ((itensform.elements[i].type == 'email' || itensform.elements[i].type == 'text') && itensform.elements[i].value == "") {
 					controle += 1;
-					itensform.elements[i].style.background = 'red';
+					itensform.elements[i].style.background = '#29157E';
 				}
 				else {
-					itensform.elements[i].style.background = 'white';
+					itensform.elements[i].style.background = '#E5E0FA';
 				}
 			}
 		controlebotao = 0;

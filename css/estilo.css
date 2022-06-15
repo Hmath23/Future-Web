@@ -294,7 +294,6 @@ h3 {
     border: 1px solid #110934;
     width: 28%;
 }
-
 .link-btn span.ui-icon {
     position: absolute;
     left: .2em;
@@ -328,7 +327,7 @@ textarea {
     color: #E5E0FA;
     padding: 1%;
     border-radius: 10px;
-    margin: 0 1%;
+    margin: 2%;
     border: none;
 }
 
