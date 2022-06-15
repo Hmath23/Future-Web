@@ -16,10 +16,14 @@ class UsuariosRestHandler extends SimpleRest {
             $mail=$_POST['txtEmailUsuario'];
             $senha=$_POST['txtSenhaUsuario'];
             
+            $query = "CAll spInserirUsuarios(:pnomeusuario,:pemailusuario,:psenhausuario)";
+
+            $array = array(":pnomeusuario"=>"{$nome}",":pemailusuario"=>"{$mail}",":psenhausuario"=>"{$senha}");
+
             //Instanciar a classe BdTurmaConnect
             $dbcontroller=new bdTurmaConnect();
             //Chamar o método
-            $rawData=$dbcontroller->executeQuery($query);
+            $rawData = $dbcontroller->executeProcedure($query,$array);
 
             //Verificar se o retorno está vazio
             if(empty($rawData)) {
@@ -45,8 +49,41 @@ class UsuariosRestHandler extends SimpleRest {
         }
     }
 
+    public function UsuariosConsultar() {
+        if(isset($_POST['txtNomeUsuario'])) {
+
+            $nome = $_POST['txtNomeUsuario'];
+        
+            //Chamar o procedure de Conslta de contatos a partir da variável nome
+            $query = "CALL spConsultarUsuarios(:pnomeusuario)";
+            //Definir o conjunto de dados
+            $array = array(":pnomeusuario"=>"{$nome}");
+            //Instanciar a classe BdTurmaConnect
+            $dbcontroller = new bdTurmaConnect();
+            //Chamar o método execute procedure trazendo a partir das variáveis query e array
+            $rawData = $dbcontroller->executeProcedure($query,$array);
+            //Verificar se o retorno está vazio
+            if(empty($rawData)){
+                $statusCode = 404;
+                $rawData = array('sucesso' => 0);
+            }
+            else{
+                $statusCode = 200;
+            }
+            //Verificar qual o tipo de cabeçalho web
+            $requestContentType = $_POST['HTTP_ACCEPT'];
+            $this->setHttpHeaders($requestContentType,$statusCode);
+            $result["RetornoDados"] = $rawData;
+            //Verificar se o arquivo passado foi json
+            if(strpos($requestContentType,'application/json') !== false){
+                $response = $this->encodeJson(($result));
+                echo $response;
+            }
+        }
+    }
+
     public function encodeJson($responseData) {
-        $jsonResponse=json_encode($responseData);
+        $jsonResponse=json_encode($responseData,JSON_UNESCAPED_UNICODE);
         return $jsonResponse;
     }
 }
@@ -61,7 +98,16 @@ else {
     }
 }
 
+if (isset($_POST['btnCadast'])){
+    $page_key = "Incluir";
+    $_POST['HTTP_ACCEPT'] = "application/json";
+}
+
 switch($page_key) {
+    case "Consultar":
+        $Usuarios = new UsuariosRestHandler();
+        $Usuarios-> UsuariosConsultar();
+        break;
     case "Incluir":
         $Usuarios=new UsuariosRestHandler();
         $Usuarios->UsuariosIncluir();

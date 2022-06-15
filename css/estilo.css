@@ -247,7 +247,136 @@ footer a:hover {
     transform: rotate3d(1, 1, 1, 360deg) scale(1.5);
 }
 
-@media only screen and (max-width: 800px) {
+/* Estilo da página sobre.html */
+
+#dois ul {
+    padding: 0 5%;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+}
+
+iframe {
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+}
+
+/* Estlo da página contato.html / contatos.html */
+
+#formulario {
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    margin:4% auto;
+    width: 100%;
+}
+
+h2 {
+    margin-top: 2%;
+}
+
+h3 {
+    margin: 3% 0;
+}
+
+.campo {
+    margin: 0 2% 2% 0;
+    background-color: #E5E0FA;
+    padding: 1%;
+    border-radius: 10px;
+    border: 1px solid #110934;
+    width: 28%;
+}
+
+.link-btn span.ui-icon {
+    position: absolute;
+    left: .2em;
+    top: 30%;
+    color: #E5E0FA;
+}
+
+placeholder {
+    color: #110934;
+}
+
+label {
+    padding: 0 1% 1% 0;
+}
+
+select {
+    padding: 0 1% 1% 0;
+    background-color: #E5E0FA;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+textarea {
+    background-color: #E5E0FA;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.botao{
+    background-color: #29157E;
+    color: #E5E0FA;
+    padding: 1%;
+    border-radius: 10px;
+    margin: 0 1%;
+    border: none;
+}
+
+.pop{
+    background-color: #E5E0FA;
+    margin: 2% auto;
+    width: 80%;
+    display: none;
+}
+table {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+th{
+    font-size: 125%;
+    padding: 1%;
+    border-bottom: 1px solid #110934;
+}
+td{
+    font-size: 110%;
+    border-bottom: 1px solid #110934;
+    margin: 0 1%;
+}
+tr:hover{
+    background-color: #29157E;
+    color: #E5E0FA;
+}
+
+/* Estlo da página servicos.html */
+
+#principal_servicos {
+    background-color: #E5E0FA;
+    border-radius: 0 0 50px 50px;
+    color: #110934;
+}
+
+#principal_servicos h2 {
+    font-size: 300%;
+    padding: 10%;
+}
+
+#principal_servicos h3 {
+    font-size: 150%;
+    padding: 5% 10%;
+}
+
+@media only screen and (max-width: 1024px) {
     hgroup {
         font-size: 40px;
         text-align: center;
@@ -285,89 +414,4 @@ footer a:hover {
         width: 8%;
         height: auto;
     }
-}
-
-/* Estilo da página sobre.html */
-
-#dois ul {
-    padding: 0 5%;
-}
-
-video {
-    width: 100%;
-    height: auto;
-    border-radius: 50px;
-}
-
-iframe {
-    aspect-ratio: 16/9;
-    width: 100%;
-    height: auto;
-    border-radius: 50px;
-}
-
-/* Estlo da página contato.html / contatos.html */
-
-#formulario {
-    width: 100%;
-    text-align: center;
-}
-
-form {
-    margin: 2%;
-}
-
-h2 {
-    margin-top: 2%;
-}
-
-h3 {
-    margin: 3% 0;
-}
-
-input {
-    margin: 0 2% 2% 0;
-    background-color: #E5E0FA;
-    padding: 1%;
-    border-radius: 10px;
-    border: 1px solid #110934;
-}
-
-placeholder {
-    color: #110934;
-}
-
-label {
-    padding: 0 1% 1% 0;
-}
-
-select {
-    padding: 0 1% 1% 0;
-    background-color: #E5E0FA;
-    padding: 1%;
-    border-radius: 10px;
-}
-
-textarea {
-    background-color: #E5E0FA;
-    padding: 1%;
-    border-radius: 10px;
-}
-
-/* Estlo da página servicos.html */
-
-#principal_servicos {
-    background-color: #E5E0FA;
-    border-radius: 0 0 50px 50px;
-    color: #110934;
-}
-
-#principal_servicos h2 {
-    font-size: 300%;
-    padding: 10%;
-}
-
-#principal_servicos h3 {
-    font-size: 150%;
-    padding: 5% 10%;
 }

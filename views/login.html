@@ -35,7 +35,6 @@
                 <li><a href="../servicos.html">serviços</a></li>
                 <li><a href="../contato.html">contato</a></li>
                 <li><a href="contatos.html">contatos</a></li>
-                <li><a href="cadastro.html">cadastro</a></li>
                 <li><a href="login.html">login</a></li>
             </ul>
         </nav>
@@ -43,24 +42,32 @@
             <section id="principal">
                 <div id="formulario">
                     <h2>Login</h2>
-                    <form action="../controllers/envio.php" method="POST" name="log" id="frmLogin">
-                        <label for="usuario">Usuário</label>
-                        <input type="text" id="usuario" name="txtNomeUsuario" placeholder="Digite seu usuário" autofocus>
+                    <form action="../controllers/ControleUsuarios.php" method="POST" name="log" id="frmLogin">
+                        <label for="mail">E-mail *</label>
+                        <input type="email" id="mail" name="txtMail" maxlength="50"
+                            placeholder="Ex.: username@email.com" required>
+                        <!-- tabindex="1" required="required"-->
                         <br>
                         <label for="senha">Senha</label>
                         <input type="password" id="senha" name="txtSenhaUsuario" placeholder="Digite sua senha">
                         <br>                       
                         <input type="submit" id="login" name="btnlogin" value="Login">
                         <input type="reset" id="limpar" name="btnlimpar" value="Limpar">
+                        <br>
+                        <p> Ainda não possui cadastro, clique botão abaixo </p>
+                        <br>
+                        <a href="cadastro.html"><input type="button" value="Cadastrar"></a>
                     </form>
                 </div>
             </section>
         </div>
         <nav>
             <ul>
-                <li><a href="sobre.html">sobre nós</a></li>
-                <li><a href="sevicos.html">serviços</a></li>
-                <li><a href="contato.html">contato</a></li>
+                <li><a href="../sobre.html">sobre nós</a></li>
+                <li><a href="../servicos.html">serviços</a></li>
+                <li><a href="../contato.html">contato</a></li>
+                <li><a href="contatos.html">contatos</a></li>
+                <li><a href="login.html">login</a></li>
             </ul>
         </nav>
     </div>
