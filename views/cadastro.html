@@ -44,21 +44,20 @@
                     <h2>Cadastro</h2>
                     <form action="../controllers/ControleUsuarios.php" method="POST" name="log" id="frmLogin">
                         <label for="usuario">Usuário</label>
-                        <input type="text" id="usuario" name="txtNomeUsuario" placeholder="Digite seu usuário" autofocus>
+                        <input type="text" id="usuario" name="txtNomeUsuario" placeholder="Usuário para cadastro" autofocus class="campo"> 
                         <br>
-                        <label for="mail">E-mail *</label>
+                        <label for="mail">E-mail</label>
                         <input type="email" id="mail" name="txtEmailUsuario" maxlength="50"
-                            placeholder="Ex.: username@email.com" required>
+                            placeholder="Email para cadastro" class="campo">
                         <!-- tabindex="1" required="required"-->
                         <br>
                         <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="txtSenhaUsuario" placeholder="Digite sua senha">
+                        <input type="password" id="senha" name="txtSenhaUsuario" placeholder="Senha para cadastro" class="campo">
                         <br>
-                        <input type="submit" id="cadast" name="btnCadast" value="Cadastrar">
-                        <input type="reset" id="limpar" name="btnlimpar" value="Limpar">
-                        <br>
-                        <a href="login.html"><input type="button" value="Voltar ao Login"></a>
-
+                        <input type="submit" id="cadast" name="btnCadast" value="Cadastrar" class="botao">
+                        <input type="reset" id="limpar" name="btnlimpar" value="Limpar" class="botao">
+                        <br><br>
+                        <a href="login.html"><input type="button" value="Voltar ao Login" class="botao"></a>
                     </form>
                 </div>
             </section>

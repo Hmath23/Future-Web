@@ -43,20 +43,20 @@
                 <div id="formulario">
                     <h2>Login</h2>
                     <form action="../controllers/ControleUsuarios.php" method="POST" name="log" id="frmLogin">
-                        <label for="mail">E-mail *</label>
+                        <label for="mail">E-mail</label>
                         <input type="email" id="mail" name="txtMail" maxlength="50"
-                            placeholder="Ex.: username@email.com" required>
+                            placeholder="Email de login" class="campo">
                         <!-- tabindex="1" required="required"-->
                         <br>
                         <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="txtSenhaUsuario" placeholder="Digite sua senha">
+                        <input type="password" id="senha" name="txtSenhaUsuario" placeholder="Senha de login" class="campo">
                         <br>                       
-                        <input type="submit" id="login" name="btnlogin" value="Login">
-                        <input type="reset" id="limpar" name="btnlimpar" value="Limpar">
-                        <br>
+                        <input type="submit" id="login" name="btnlogin" value="Login" class="botao">
+                        <input type="reset" id="limpar" name="btnlimpar" value="Limpar" class="botao">
+                        <br><br>
                         <p> Ainda não possui cadastro, clique botão abaixo </p>
                         <br>
-                        <a href="cadastro.html"><input type="button" value="Cadastrar"></a>
+                        <a href="cadastro.html"><input type="button" value="Cadastrar" class="botao"></a>
                     </form>
                 </div>
             </section>
