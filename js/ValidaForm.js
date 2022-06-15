@@ -133,7 +133,7 @@ function ContatosConsultar(){
 }
 
 function MostrarContatos(obj){
-	var strTabela = "<table border=1><thead><th>Nome</th><th>Email</th><th>Telefone</th><th>CEP</th><th>UF</th></thead>";
+	var strTabela = "<table><thead><th>Nome</th><th>Email</th><th>Telefone</th><th>CEP</th><th>UF</th></thead>";
 	result = document.getElementById('Resultado');
 	if(obj.RetornoDados.length > 1){
 		for (var i=0;i < obj.RetornoDados.length;i++){
@@ -168,8 +168,6 @@ function ContatosIncluir(){
 
 	var itensform = document.forms['frmContatos'];
 	var qtditens = itensform.elements.length;
-
-
 
 	for (var i = 0; i < qtditens; i++) {
 		if (itensform.elements[i].type == 'button' || itensform.elements[i].type == 'reset'){

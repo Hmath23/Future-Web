@@ -274,7 +274,8 @@ iframe {
 }
 
 form {
-    margin: 2%;
+    margin:4% auto;
+    width: 100%;
 }
 
 h2 {
@@ -294,30 +295,10 @@ h3 {
     width: 28%;
 }
 
-.link-btn {
-    padding: 1% 1% 1% 2%;
-    text-decoration: none;
-    border-radius: 10px;
-    color: #29157E;
-    position: relative;
-    margin: 5px 0 0 5px;
-    border: 1px solid #29157E;
-}
-
-.link-btn:hover{
-    text-decoration: none;
-    color: #29157E;
-}
-
 .link-btn span.ui-icon {
-    color: #E5E0FA;
     position: absolute;
     left: .2em;
     top: 30%;
-    color: #29157E;
-}
-
-.ui-icon-search{
     color: #E5E0FA;
 }
 
@@ -351,10 +332,30 @@ textarea {
     border: none;
 }
 
-
+.pop{
+    background-color: #E5E0FA;
+    margin: 2% auto;
+    width: 80%;
+    display: none;
+}
 table {
     width: 100%;
-    margin-left: 20%;
+    margin: 0 auto;
+    text-align: center;
+}
+th{
+    font-size: 125%;
+    padding: 1%;
+    border-bottom: 1px solid #110934;
+}
+td{
+    font-size: 110%;
+    border-bottom: 1px solid #110934;
+    margin: 0 1%;
+}
+tr:hover{
+    background-color: #29157E;
+    color: #E5E0FA;
 }
 
 /* Estlo da página servicos.html */
