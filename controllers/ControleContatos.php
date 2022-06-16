@@ -32,7 +32,7 @@ class ContatosRestHandler extends SimpleRest {
                 
                 //Defnir as instruções SQL
 
-                $query = "INSERT INTO tbContatos (codContato,
+                $query = "INSERT INTO tbcontatos (codContato,
                                                 nomedoContato,
                                                 enderecoContato,
                                                 telefoneContato,

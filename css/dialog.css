@@ -1122,7 +1122,7 @@ body .ui-tooltip {
 ----------------------------------*/
 
 /* states and images */
-.ui-icon {
+/* .ui-icon {
     width: 16px;
     height: 16px;
     background-image: url(https://api.jqueryui.com/theming/icons/images/ui-icons_222222_256x240.png);
@@ -1156,7 +1156,7 @@ body .ui-tooltip {
 .ui-state-error .ui-icon,
 .ui-state-error-text .ui-icon {
     background-image: url(images/ui-icons_ffd27a_256x240.png);
-}
+} */
 
 /* positioning */
 .ui-icon-carat-1-n {

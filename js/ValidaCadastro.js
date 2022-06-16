@@ -177,9 +177,11 @@ function ContatosIncluir(){
 				if ((itensform.elements[i].type == 'email' || itensform.elements[i].type == 'text') && itensform.elements[i].value == "") {
 					controle += 1;
 					itensform.elements[i].style.background = '#29157E';
+					itensform.elements[i].style.color = '#E5E0FA';
 				}
 				else {
 					itensform.elements[i].style.background = '#E5E0FA';
+					itensform.elements[i].style.color = '#29157E';
 				}
 			}
 		controlebotao = 0;
