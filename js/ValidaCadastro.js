@@ -25,7 +25,7 @@ function CriaRequest() {
 		try{
 			request = new ActiveXObject("Msxml2.XMLHTTP");       
 		}
-		catch(IEAntigo){
+	catch(IEAntigo){
 			try{
 				request = new ActiveXObject("Microsoft.XMLHTTP");          
 			}
