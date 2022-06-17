@@ -43,8 +43,6 @@ function CriaRequest() {
 }
 
 $(document).ready(function(){
-	$('#txtCEP').mask('00000-000');
-	$('#txtPhone').mask('(00)00000-0000');
     $('#btnListar').click(function(){
         // alert("Teste");
     	ContatosConsultar();
