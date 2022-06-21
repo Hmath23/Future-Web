@@ -147,8 +147,7 @@ function MostrarContatos(obj){
 		strTabela += "</tbody></table>";
 		result.innerHTML = strTabela;
 		document.getElementById('formulario').style.display = "none";
-		document.getElementById('Resultado').style.display = "block"; 
-		//$("#Listagem").modal();
+		document.getElementById('Resultado').style.display = "block";
 	}
 	else{
 		$('input[name=txtNome]').val(obj.RetornoDados[0].nomedoContato);

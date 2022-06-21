@@ -66,7 +66,7 @@ function UsuariosIncluir(){
 	var controle = 0;
 	var controlebotao = 0;
 
-	var itensform = document.forms['frmLogin'];
+	var itensform = document.forms['frmCad'];
 	var qtditens = itensform.elements.length;
 
 	for (var i = 0; i < qtditens; i++) {
