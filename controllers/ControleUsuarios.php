@@ -82,6 +82,40 @@ class UsuariosRestHandler extends SimpleRest {
         }
     }
 
+    public function UsuariosValidar() {
+        if(isset($_POST['txtNomeUsuario'])) {
+
+            $nome = $_POST['txtNomeUsuario'];
+            $senha = $_POST['txtSenhaUsuario'];
+        
+            //Chamar o procedure de Conslta de contatos a partir da variável nome
+            $query = "CALL spValidarUsuarios(:pnomeusuario,:senhausuario)";
+            //Definir o conjunto de dados
+            $array = array(":pnomeusuario"=>"{$nome}",":psenhausuario"=>"{$senha}");
+            //Instanciar a classe BdTurmaConnect
+            $dbcontroller = new bdTurmaConnect();
+            //Chamar o método execute procedure trazendo a partir das variáveis query e array
+            $rawData = $dbcontroller->executeProcedure($query,$array);
+            //Verificar se o retorno está vazio
+            if(empty($rawData)){
+                $statusCode = 404;
+                $rawData = array('sucesso' => 0);
+            }
+            else{
+                $statusCode = 200;
+            }
+            //Verificar qual o tipo de cabeçalho web
+            $requestContentType = $_POST['HTTP_ACCEPT'];
+            $this->setHttpHeaders($requestContentType,$statusCode);
+            $result["RetornoDados"] = $rawData;
+            //Verificar se o arquivo passado foi json
+            if(strpos($requestContentType,'application/json') !== false){
+                $response = $this->encodeJson(($result));
+                echo $response;
+            }
+        }
+    }
+
     public function encodeJson($responseData) {
         $jsonResponse=json_encode($responseData,JSON_UNESCAPED_UNICODE);
         return $jsonResponse;
@@ -111,6 +145,10 @@ switch($page_key) {
     case "Incluir":
         $Usuarios=new UsuariosRestHandler();
         $Usuarios->UsuariosIncluir();
+    break;
+    case "Validar":
+        $Usuarios=new UsuariosRestHandler();
+        $Usuarios->UsuariosValidar();
     break;
 }
 
