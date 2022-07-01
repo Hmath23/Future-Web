@@ -9,9 +9,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Compatibilidade com o edge -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Altera a escala da página para outros dispositivos-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Link para as apis do AJAX -->
+	<script src="http://code.jquery.com/jquery-1.8.3.js"></script> 
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <!-- Link para os arquivos java -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <!-- Link para o plugin de máscara JQuery -->
+    <script type="text/javascript" src="../js/ValidaLogin.js"></script>
     <title>FutureWeb - Login</title>
     <!--Título do documento-->
+    <link rel="stylesheet" href="../css/normalize.css" type="text/css" />
     <link rel="stylesheet" href="../css/estilo.css" type="text/css" />
+    <link rel="stylesheet" href="../css/dialog.css" type="text/css" />
     <!-- Link para o css -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,24 +52,29 @@
             <section id="principal">
                 <div id="formulario">
                     <h2>Login</h2>
-                    <form action="../controllers/ControleUsuarios.php" method="POST" name="log" id="frmLogin">
-                        <label for="mail">E-mail</label>
-                        <input type="email" id="mail" name="txtMail" maxlength="50"
+                    <form action="" method="" name="log" id="frmLogin">
+                        <label for="txtMail">E-mail</label>
+                        <input type="text" id="txtMail" name="txtMail" maxlength="50"
                             placeholder="Email de login" class="campo">
                         <!-- tabindex="1" required="required"-->
                         <br>
-                        <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="txtSenhaUsuario" placeholder="Senha de login" class="campo">
+                        <label for="txtSenhaUsuario">Senha</label>
+                        <input type="password" id="txtSenhaUsuario" name="txtSenhaUsuario" placeholder="Senha de login" class="campo">
                         <br>                       
-                        <input type="submit" id="login" name="btnlogin" value="Login" class="botao">
+                        <input type="button" id="btnLogin" name="btnLogin" value="Login" class="botao">
                         <input type="reset" id="limpar" name="btnlimpar" value="Limpar" class="botao">
+                        <input type="button" id="btnRecSenha" name="btnRecSenha" value="Esqueci minha Senha" class="botao">
                         <br><br>
                         <p> Ainda não possui cadastro, clique botão abaixo </p>
                         <br>
                         <a href="cadastro.html"><input type="button" value="Cadastrar" class="botao"></a>
                     </form>
                 </div>
+                <span id="Resultado" class="pop"><span>
             </section>
+            <div id="dialogo" title="Atenção">
+                <p id="mensagem"></p>
+            </div>     
         </div>
         <nav>
             <ul>
