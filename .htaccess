@@ -1,0 +1,9 @@
+#Turn rewrite engine on
+Options +FollowSymlinks
+RewriteEngine on
+
+# map neat URL to internal URL
+RewriteRule ^usuarios/listar/$ controllers/ControleUsuarios.php?page_key=Validar [QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d

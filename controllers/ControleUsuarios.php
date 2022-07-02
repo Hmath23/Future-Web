@@ -89,7 +89,7 @@ class UsuariosRestHandler extends SimpleRest {
             $senha = $_POST['txtSenhaUsuario'];
         
             //Chamar o procedure de Conslta de contatos a partir da variável nome
-            $query = "CALL spValidarUsuarios(:pnomeusuario,:senhausuario)";
+            $query = "CALL spValidarUsuarios(:pnomeusuario,:psenhausuario)";
             //Definir o conjunto de dados
             $array = array(":pnomeusuario"=>"{$nome}",":psenhausuario"=>"{$senha}");
             //Instanciar a classe BdTurmaConnect
