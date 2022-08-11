@@ -3,7 +3,11 @@ Options +FollowSymlinks
 RewriteEngine on
 
 # map neat URL to internal URL
-RewriteRule ^usuarios/listar/$ controllers/ControleUsuarios.php?page_key=Validar [QSA]
+RewriteRule ^usuarios/conectar/$ controllers/ControleUsuarios.php?page_key=Validar [QSA]
+RewriteRule ^usuarios/desconectar/$ controllers/ControleUsuarios.php?page_key=Desconectar [QSA]
+RewriteRule ^usuarios/trocar/$ controllers/ControleUsuarios.php?page_key=Trocar [QSA]
+
+
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
