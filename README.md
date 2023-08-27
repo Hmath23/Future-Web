@@ -1,7 +1,5 @@
 # Projeto Acadêmico: Sistema de Gerenciamento de Produtos
 
-![Preview](screenshot.png)
-
 Bem-vindo ao repositório do projeto acadêmico de desenvolvimento de um sistema de gerenciamento de produtos! Este projeto abrange tanto a implementação do FrontEnd utilizando HTML e CSS quanto a criação do BackEnd usando PHP, JavaScript e integração com um banco de dados MySQL.
 
 ## Visão Geral
